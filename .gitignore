@@ -1,0 +1,57 @@
+# ===== 依赖 =====
+node_modules/
+
+# ===== Next.js 构建产物 =====
+.next/
+out/
+build/
+dist/
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# ===== 本地数据库 / 测试数据（访客数据不要提交） =====
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+test.db
+
+# ===== 环境变量 =====
+.env
+.env.*
+!.env.example
+
+# ===== 编辑器 / 系统 =====
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# ===== 日志 / 本地临时文件 =====
+*.log
+npm-debug.log*
+yarn-error.log*
+*.local
+backend/handmode.py
+
+# ===== 模型权重 / 上传图片（体积大，不要提交） =====
+backend/uploads/
+backend/samples/
+backend/weights/*.pt
+backend/weights/*.pth
+backend/weights/*.bin
+backend/weights/*.onnx
+backend/weights/*.h5
+backend/weights/*.keras
+
+# 但自己的成品模型要进仓库（8.9 MB，GitHub 完全放得下）
+!backend/weights/leaf.pt

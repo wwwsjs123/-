@@ -1,0 +1,136 @@
+/* css/image-lab.css */
+ 
+.upload-zone {
+  display: grid;
+  place-items: center;
+  min-height: 220px;
+  padding: 18px;
+  border: 1.5px dashed var(--border-soft);
+  border-radius: var(--radius-soft);
+  background: var(--surface-soft);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+ 
+.upload-zone:hover,
+.upload-zone.is-dragging {
+  border-color: var(--brand);
+  background: #eef6ff;
+}
+ 
+.upload-hint {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+ 
+.upload-hint span { font-size: 12px; }
+ 
+.upload-preview {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 10px;
+  object-fit: contain;
+}
+ 
+.result-image {
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+  border-radius: var(--radius-soft);
+  background: var(--surface-soft);
+}
+ 
+.result-badge .result-label {
+  font-size: 22px;
+  line-height: 1.25;
+}
+ 
+.top-list { display: grid; gap: 9px; }
+ 
+.top-row {
+  display: grid;
+  grid-template-columns: minmax(84px, 1fr) 1.6fr 52px;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+}
+ 
+.top-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+ 
+.top-bar {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(29, 29, 31, 0.08);
+  overflow: hidden;
+}
+ 
+.top-bar i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--brand);
+  transition: width 0.4s ease;
+}
+ 
+.top-score {
+  color: var(--text-muted);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+ 
+.history-item-image {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+ 
+.history-item-image img {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  object-fit: cover;
+  background: var(--surface);
+}
+ 
+.primary-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+ 
+/* 上传区用 <label> 触发原生文件框：给内部留定位上下文 */
+.upload-zone {
+  position: relative;
+}
+
+/* 外层的 hint 用 span，需要恢复成块级才能居中换行 */
+.upload-zone .upload-hint {
+  display: block;
+}
+
+/* 文件框视觉隐藏但仍可 Tab 聚焦（无障碍），点 label 即可打开选择框 */
+.upload-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  opacity: 0;
+}
+
+@media (max-width: 640px) {
+  .top-row {
+    grid-template-columns: minmax(70px, 1fr) 1fr 46px;
+    font-size: 12.5px;
+  }
+}
